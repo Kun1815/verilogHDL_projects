@@ -1,27 +1,22 @@
 `timescale 1ns / 1ps
 
-
 module bit1 (
-input a,
-input b,
-input cin,
-output cout,
-output s
-
+    input a,
+    input b,
+    input cin,
+    output cout,
+    output s
 );
 assign {cout,s}=a+b+cin;
-
 endmodule
 
 
 
 module serial_adder_16bits(
-input [15:0]a,
-input [15:0]b,
-output [15:0]s,
-output Cout
-
-
+    input [15:0]a,
+    input [15:0]b,
+    output [15:0]s,
+    output Cout
 );
 wire [14:0]cout;
 
@@ -45,12 +40,5 @@ bit1 u13(.a(a[13]),.b(b[13]),.cin(cout[12]),.cout(cout[13]),.s(s[13]));
 bit1 u14(.a(a[14]),.b(b[14]),.cin(cout[13]),.cout(cout[14]),.s(s[14]));
 bit1 u15(.a(a[15]),.b(b[15]),.cin(cout[14]),.cout(Cout),.s(s[15]));
 
-
-
-
 endmodule
-
-
-
-
 
